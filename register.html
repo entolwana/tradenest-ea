@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="supabase.js"></script>>
 <title>Register</title>
 </head>
 <body style="background:black;color:white;text-align:center;padding-top:100px;">
-<h1>Create Account</h1>
+<h1><h1>Create Account</h1>
+
+<input id="email" placeholder="Email"><br><br>
+
+<input id="password" type="password" placeholder="Password"><br><br>
+
+<button onclick="register()">Register</button>
+
+<script>
+async function register(){
+
+const email =
+document.getElementById("email").value;
+
+const password =
+document.getElementById("password").value;
+
+const { error } =
+await supabaseClient.auth.signUp({
+email,
+password
+});
+
+if(error){
+alert(error.message);
+return;
+}
+
+alert("Account created!");
+window.location.href =
+"login.html";
+
+}
+</script></h1>
 
 <input placeholder="Name"><br><br>
 <input placeholder="Email"><br><br>
