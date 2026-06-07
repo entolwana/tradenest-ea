@@ -2,9 +2,41 @@
 <html>
 <head>
 <title>Login</title>
-</head>
+</head><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="supabase.js"></script>
 <body style="background:black;color:white;text-align:center;padding-top:100px;">
-<h1>TradeNest EA Login</h1>
+<h1><h1>TradeNest EA Login</h1>
+
+<input id="email" placeholder="Email"><br><br>
+
+<input id="password" type="password" placeholder="Password"><br><br>
+
+<button onclick="login()">Login</button>
+
+<script>
+async function login() {
+
+const email =
+document.getElementById("email").value;
+
+const password =
+document.getElementById("password").value;
+
+const { error } =
+await supabaseClient.auth.signInWithPassword({
+email,
+password
+});
+
+if(error){
+alert(error.message);
+return;
+}
+
+window.location.href =
+"dashboard.html";
+}
+</script></h1>
 
 <input placeholder="Email"><br><br>
 <input placeholder="Password" type="password"><br><br>
